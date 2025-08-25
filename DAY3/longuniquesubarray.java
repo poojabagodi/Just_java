@@ -7,7 +7,13 @@ public class longuniquesubarray {
         int maxlen=0;
         int left=0;
         for(int right=0;right<n;right++){
-              char ch=
+              char ch=str.charAt(right);
+              if(seen.containsKey(ch)){
+                left=Math.max(left,seen.get(ch)+1);
+              }
+              seen.put(ch,right);
+              maxlen=Math.max(maxlen,right-left+1);
         }
+        return maxlen;
     }
 }
